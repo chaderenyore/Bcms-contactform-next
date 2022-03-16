@@ -10,9 +10,6 @@ module.exports = createBcmsMostConfig({
         "46c7de04efc90eb0196608548b8f0157a2edda12c982ef2469b4ed60a6582d94",
     },
   },
-  server: {
-    port: 3001,
-  },
   media: {
     output: "public",
   },
