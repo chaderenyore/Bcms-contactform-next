@@ -27,7 +27,40 @@ const Template: FC<{ entry: BCMSEntryParsed; backUri: string }> = (props) => {
       <br />
       <Link href={props.backUri}>Back</Link>
       {props.entry.meta.en.cover_image ? (
-        <BCMSImage media={props.entry.meta.en.cover_image as BCMSMediaParsed} />
+        <BCMSImage
+          media={props.entry.meta.en.cover_image as BCMSMediaParsed}
+          options={{
+            position: 'cover',
+            sizes: {
+              exec: [
+                {
+                  width: 350,
+                  height: 300,
+                },
+                {
+                  width: 600,
+                  height: 300,
+                },
+                {
+                  width: 900,
+                  height: 300,
+                },
+                {
+                  width: 1200,
+                  height: 300,
+                },
+                {
+                  width: 1500,
+                  height: 300,
+                },
+                {
+                  width: 1920,
+                  height: 300,
+                },
+              ],
+            },
+          }}
+        />
       ) : (
         ''
       )}
