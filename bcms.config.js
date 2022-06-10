@@ -1,17 +1,20 @@
-const { createBcmsMostConfig } = require("@becomes/cms-most");
+const { createBcmsMostConfig } = require('@becomes/cms-most');
 
 module.exports = createBcmsMostConfig({
   cms: {
-    origin: process.env.BCMS_API_ORIGIN || "https://becomes-starter-projects.yourbcms.com",
+    origin:
+      process.env.BCMS_API_ORIGIN ||
+      'https://becomes-starter-projects.yourbcms.com',
     key: {
-      id: process.env.BCMS_API_KEY || "622b70b377a890368d3602d4",
+      id: process.env.BCMS_API_KEY || '629dcd4dbcf5017354af6fe8',
       secret:
         process.env.BCMS_API_SECRET ||
-        "46c7de04efc90eb0196608548b8f0157a2edda12c982ef2469b4ed60a6582d94",
+        '7a3c5899f211c2d988770f7561330ed8b0a4b2b5481acc2855bb720729367896',
     },
   },
   media: {
-    output: "public",
+    output: 'public',
+    download: false,
   },
   enableClientCache: true,
 });
