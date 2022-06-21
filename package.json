@@ -13,9 +13,9 @@
     "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "@becomes/cms-cli": "^2.2.9",
-    "@becomes/cms-client": "^3.1.5",
-    "@becomes/cms-most": "^2.3.3",
+    "@becomes/cms-cli": "^2.3.1",
+    "@becomes/cms-client": "^3.2.0",
+    "@becomes/cms-most": "^2.3.6",
     "@types/node": "17.0.12",
     "@types/react": "17.0.38",
     "@typescript-eslint/eslint-plugin": "^4.25.0",
