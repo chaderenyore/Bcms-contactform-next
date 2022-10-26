@@ -13,11 +13,6 @@
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
-  "peerDependencies": {
-    "@becomes/cms-cli": ">=2.3.6",
-    "@becomes/cms-client": ">=3.3.3",
-    "@becomes/cms-most": ">=2.6.3"
-  },
   "devDependencies": {
     "@becomes/cms-cli": "^2.3.6",
     "@becomes/cms-client": "^3.3.3",
