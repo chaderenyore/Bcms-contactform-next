@@ -10,6 +10,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 };
 
 const Home: NextPage<{ data: string[] }> = ({ data }) => {
+  console.log();
   return (
     <ul>
       {data.map((template, idx) => {
