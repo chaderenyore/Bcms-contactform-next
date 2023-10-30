@@ -12,6 +12,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
 const Home: NextPage<{ data: string[] }> = ({ data }) => {
   console.log();
   return (
+    <>
+    <div>Hey!</div>
     <ul>
       {data.map((template, idx) => {
         return (
@@ -21,6 +23,8 @@ const Home: NextPage<{ data: string[] }> = ({ data }) => {
         );
       })}
     </ul>
+    </>
+    
   );
 };
 
