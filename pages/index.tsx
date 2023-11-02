@@ -12,7 +12,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
 const Home: NextPage<{ data: string[] }> = ({ data }) => {
   console.log();
   return (
-    <ul>
+    <div>
+      <ul>
       {data.map((template, idx) => {
         return (
           <li key={idx}>
@@ -21,6 +22,9 @@ const Home: NextPage<{ data: string[] }> = ({ data }) => {
         );
       })}
     </ul>
+
+    <Link href="/contact" className='underline text-blue-600'>Click Here to go to Contact Page</Link>
+    </div>
   );
 };
 
