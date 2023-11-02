@@ -1,7 +1,44 @@
 import Head from 'next/head';
-import ContactIcon from './components/ContactIcon'
+import ContactIcon from './components/ContactIcon';
+
+import { useState } from 'react';
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  const handleFormSubmit = async (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    const { name, email, message } = formData;
+    if (!name || !email || !message) {
+      alert('All Fields Are Required.');
+      return; // Prevent further execution
+    }
+
+    const response = await fetch(
+      'http://localhost:8080/api/function/contact-message',
+      {
+        method: 'POST',
+        body: JSON.stringify({ name, email, message }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      },
+    );
+
+    if (response.status === 200) {
+      alert('Message sent. You rock!');
+       // Reset the form data
+       setFormData({ name: '', email: '', message: '' });
+    } else {
+      // Handle other cases (e.g., server errors) here.
+      console.log("We've got some errors.");
+    }
+  };
+
   return (
     <>
       <Head>
@@ -38,6 +75,10 @@ export default function Contact() {
                       id="username"
                       type="text"
                       placeholder="Enter your name"
+                      value={formData.name}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
                     />
                   </div>
                   {/* email input */}
@@ -53,6 +94,10 @@ export default function Contact() {
                       id="email"
                       type="text"
                       placeholder="Enter your email"
+                      value={formData.email}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
                     />
                   </div>
                   {/* textarea message */}
@@ -69,13 +114,18 @@ export default function Contact() {
                       className=" block p-2.5 mt-4 w-full text-gray-900 text-xs lg:text-base font-normal rounded-3xl border  border-stone-300 placeholder-black"
                       rows={4}
                       placeholder="Your message..."
+                      value={formData.message}
+                      onChange={(e) =>
+                        setFormData({ ...formData, message: e.target.value })
+                      }
                     ></textarea>
                   </div>
 
                   <div className="w-full  px-6 py-5 bg-gray-900 rounded-3xl justify-center items-center gap-3 inline-flex">
                     <button
-                      className="text-white text-base font-normal  leading-none"
-                      type="button"
+                      className="text-white text-base font-normal w-full leading-none"
+                      type="submit"
+                      onClick={handleFormSubmit}
                     >
                       Submit
                     </button>
